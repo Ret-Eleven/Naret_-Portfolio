@@ -7,9 +7,9 @@ import { FaTelegram } from 'react-icons/fa';
 import ParticlesBackground from './ParticlesBackground';
 
 const SOCIALS = [
-  { icon: FiGithub, href: 'https://github.com', label: 'GitHub' },
-  { icon: FiLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: FaTelegram, href: 'https://t.me/soknaret', label: 'Telegram' },
+  { icon: FiGithub, href: 'https://github.com/Ret-Eleven', label: 'GitHub' },
+  { icon: FiLinkedin, href: 'https://www.linkedin.com/in/kim-soknaret-naret-9772b7356', label: 'LinkedIn' },
+  { icon: FaTelegram, href: 'https://t.me/iamtenz18', label: 'Telegram' },
 ];
 
 const containerVariants = {

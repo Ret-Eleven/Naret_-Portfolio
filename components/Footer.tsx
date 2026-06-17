@@ -5,10 +5,10 @@ import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { FaTelegram } from 'react-icons/fa';
 
 const socials = [
-  { icon: FiGithub, href: 'https://github.com', label: 'GitHub' },
-  { icon: FiLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: FiMail, href: 'mailto:soknaret@example.com', label: 'Email' },
-  { icon: FaTelegram, href: 'https://t.me/soknaret', label: 'Telegram' },
+  { icon: FiGithub, href: 'https://github.com/Ret-Eleven', label: 'GitHub' },
+  { icon: FiLinkedin, href: 'https://www.linkedin.com/in/kim-soknaret-naret-9772b7356', label: 'LinkedIn' },
+  { icon: FiMail, href: 'mailto:kim.soknaret@gmail.com', label: 'Email' },
+  { icon: FaTelegram, href: 'https://t.me/iamtenz18', label: 'Telegram' },
 ];
 
 export default function Footer() {

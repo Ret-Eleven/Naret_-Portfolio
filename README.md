@@ -74,7 +74,7 @@ Naret_-Portfolio/
 ```bash
 # Clone the repository
 git clone https://github.com/your-username/naret-portfolio.git
-cd naret-portfolio
+cd Naret_-Portfolio
 
 # Install dependencies
 npm install

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { HiAcademicCap, HiCode, HiDatabase, HiLightningBolt } from 'react-icons/hi';
+import Image from 'next/image';
 
 const STATS = [
   { value: '3+', label: 'Years of Learning', icon: HiAcademicCap },
@@ -54,12 +55,19 @@ export default function About() {
 
               {/* Profile card */}
               <div className="relative w-72 h-80 sm:w-80 sm:h-96 glass rounded-3xl border border-white/10 overflow-hidden flex flex-col items-center justify-center p-6">
-                {/* Avatar placeholder */}
-                <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center mb-5 shadow-lg shadow-indigo-500/30">
-                  <span className="text-4xl font-black text-white">KS</span>
+                {/* Profile photo */}
+                <div className="w-28 h-28 rounded-2xl overflow-hidden mb-5 shadow-lg shadow-indigo-500/30 ring-2 ring-indigo-500/30">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Kim Soknaret"
+                    width={112}
+                    height={112}
+                    className="w-full h-full object-cover object-top"
+                    priority
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-1">Kim Soknaret</h3>
-                <p className="text-indigo-400 text-sm font-mono mb-5">@soknaret</p>
+                <p className="text-indigo-400 text-sm font-mono mb-5">kim.soknaret@gmail.com</p>
 
                 {/* Trait badges */}
                 <div className="flex flex-wrap justify-center gap-2">
