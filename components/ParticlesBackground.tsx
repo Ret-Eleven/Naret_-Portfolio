@@ -12,9 +12,9 @@ interface Particle {
   color: string;
 }
 
-const COLORS = ['#6366f1', '#8b5cf6', '#3b82f6', '#a78bfa', '#60a5fa'];
-const MAX_LINK_DIST = 130;
-const MOUSE_REPEL_DIST = 100;
+const COLORS = ['#ec4899', '#00d4ff', '#f472b6', '#22d3ee', '#ffffff', '#ec489966', '#00d4ff66'];
+const MAX_LINK_DIST = 140;
+const MOUSE_REPEL_DIST = 120;
 
 export default function ParticlesBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -60,15 +60,12 @@ export default function ParticlesBackground() {
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
-        // Move
         p.x += p.vx;
         p.y += p.vy;
 
-        // Bounce walls
         if (p.x <= 0 || p.x >= canvas.width) p.vx *= -1;
         if (p.y <= 0 || p.y >= canvas.height) p.vy *= -1;
 
-        // Mouse repel
         const mdx = p.x - mouse.x;
         const mdy = p.y - mouse.y;
         const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
@@ -76,12 +73,10 @@ export default function ParticlesBackground() {
           const force = (MOUSE_REPEL_DIST - mDist) / MOUSE_REPEL_DIST;
           p.vx += (mdx / mDist) * force * 0.06;
           p.vy += (mdy / mDist) * force * 0.06;
-          // Cap speed
           const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
           if (speed > 2) { p.vx = (p.vx / speed) * 2; p.vy = (p.vy / speed) * 2; }
         }
 
-        // Draw dot
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
@@ -89,7 +84,6 @@ export default function ParticlesBackground() {
         ctx.fill();
         ctx.globalAlpha = 1;
 
-        // Draw links
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dx = p.x - p2.x;
@@ -99,8 +93,8 @@ export default function ParticlesBackground() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = '#6366f1';
-            ctx.globalAlpha = (1 - dist / MAX_LINK_DIST) * 0.25;
+            ctx.strokeStyle = p.color;
+            ctx.globalAlpha = (1 - dist / MAX_LINK_DIST) * 0.15;
             ctx.lineWidth = 0.6;
             ctx.stroke();
             ctx.globalAlpha = 1;
@@ -138,7 +132,7 @@ export default function ParticlesBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-0 pointer-events-none opacity-60"
+      className="fixed inset-0 z-0 pointer-events-none opacity-50"
     />
   );
 }

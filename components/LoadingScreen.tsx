@@ -30,12 +30,18 @@ export default function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.02 }}
           transition={{ duration: 0.6, ease: 'easeInOut' }}
-          className="fixed inset-0 z-[200] bg-[#0a0a0f] flex items-center justify-center"
+          className="fixed inset-0 z-[200] bg-black flex items-center justify-center"
         >
           {/* Glow orbs */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-indigo-600/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-violet-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div
+              className="absolute top-1/3 left-1/3 w-64 h-64 rounded-full blur-3xl animate-pulse"
+              style={{ background: 'rgba(236,72,153,0.2)' }}
+            />
+            <div
+              className="absolute bottom-1/3 right-1/3 w-64 h-64 rounded-full blur-3xl animate-pulse"
+              style={{ background: 'rgba(0,212,255,0.15)', animationDelay: '1s' }}
+            />
           </div>
 
           <div className="relative flex flex-col items-center">
@@ -47,20 +53,27 @@ export default function LoadingScreen() {
               className="mb-8"
             >
               <div className="relative w-24 h-24 flex items-center justify-center">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 opacity-20 blur-xl" />
-                <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center">
+                <div
+                  className="absolute inset-0 rounded-2xl opacity-25 blur-xl"
+                  style={{ background: 'linear-gradient(135deg, #ec4899, #00d4ff)' }}
+                />
+                <div
+                  className="relative w-20 h-20 rounded-2xl flex items-center justify-center"
+                  style={{ background: 'linear-gradient(135deg, #ec4899, #00d4ff)' }}
+                >
                   <span className="text-3xl font-black text-white tracking-tight">NK</span>
                 </div>
               </div>
             </motion.div>
 
             {/* Progress bar */}
-            <div className="w-52 h-1 bg-white/10 rounded-full overflow-hidden mb-4">
+            <div className="w-52 h-px bg-white/10 rounded-full overflow-hidden mb-4">
               <motion.div
                 initial={{ width: '0%' }}
                 animate={{ width: '100%' }}
                 transition={{ duration: 2.2, ease: 'easeInOut', delay: 0.3 }}
-                className="h-full bg-gradient-to-r from-indigo-500 via-violet-500 to-blue-500 rounded-full"
+                className="h-full rounded-full"
+                style={{ background: 'linear-gradient(90deg, #ec4899, #00d4ff)' }}
               />
             </div>
 

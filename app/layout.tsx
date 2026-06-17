@@ -31,7 +31,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-[#0a0a0f] text-white antialiased">
+      <body className="bg-black text-white antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <LoadingScreen />
           {children}

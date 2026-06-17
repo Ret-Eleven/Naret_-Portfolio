@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
   SiPython, SiDjango, SiNextdotjs, SiJavascript, SiTypescript,
@@ -9,28 +10,31 @@ import {
 import { FiBarChart2, FiCpu } from 'react-icons/fi';
 
 const SKILLS = [
-  { name: 'Python', icon: SiPython, color: '#3b82f6', bg: 'bg-blue-500/10', border: 'border-blue-500/20', level: 85, category: 'Language' },
-  { name: 'Django', icon: SiDjango, color: '#10b981', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20', level: 75, category: 'Backend' },
-  { name: 'Next.js', icon: SiNextdotjs, color: '#ffffff', bg: 'bg-white/5', border: 'border-white/15', level: 70, category: 'Frontend' },
-  { name: 'JavaScript', icon: SiJavascript, color: '#f59e0b', bg: 'bg-yellow-500/10', border: 'border-yellow-500/20', level: 75, category: 'Language' },
-  { name: 'TypeScript', icon: SiTypescript, color: '#3b82f6', bg: 'bg-blue-500/10', border: 'border-blue-500/20', level: 65, category: 'Language' },
-  { name: 'SQL & PostgreSQL', icon: SiPostgresql, color: '#6366f1', bg: 'bg-indigo-500/10', border: 'border-indigo-500/20', level: 70, category: 'Database' },
-  { name: 'Supabase', icon: SiSupabase, color: '#10b981', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20', level: 65, category: 'Database' },
-  { name: 'Docker', icon: SiDocker, color: '#3b82f6', bg: 'bg-blue-500/10', border: 'border-blue-500/20', level: 60, category: 'DevOps' },
-  { name: 'Linux Ubuntu', icon: SiUbuntu, color: '#f97316', bg: 'bg-orange-500/10', border: 'border-orange-500/20', level: 65, category: 'DevOps' },
-  { name: 'Data Science', icon: FiBarChart2, color: '#8b5cf6', bg: 'bg-violet-500/10', border: 'border-violet-500/20', level: 70, category: 'Data' },
-  { name: 'Machine Learning', icon: FiCpu, color: '#a78bfa', bg: 'bg-violet-500/10', border: 'border-violet-500/20', level: 60, category: 'Data' },
-  { name: 'Git & GitHub', icon: SiGit, color: '#f97316', bg: 'bg-orange-500/10', border: 'border-orange-500/20', level: 80, category: 'Tool' },
+  { name: 'Python', icon: SiPython, color: '#3b82f6', level: 85, category: 'Language' },
+  { name: 'Django', icon: SiDjango, color: '#10b981', level: 75, category: 'Backend' },
+  { name: 'Next.js', icon: SiNextdotjs, color: '#ffffff', level: 70, category: 'Frontend' },
+  { name: 'JavaScript', icon: SiJavascript, color: '#f59e0b', level: 75, category: 'Language' },
+  { name: 'TypeScript', icon: SiTypescript, color: '#3b82f6', level: 65, category: 'Language' },
+  { name: 'SQL & PostgreSQL', icon: SiPostgresql, color: '#00d4ff', level: 70, category: 'Database' },
+  { name: 'Supabase', icon: SiSupabase, color: '#10b981', level: 65, category: 'Database' },
+  { name: 'Docker', icon: SiDocker, color: '#3b82f6', level: 60, category: 'DevOps' },
+  { name: 'Linux Ubuntu', icon: SiUbuntu, color: '#f97316', level: 65, category: 'DevOps' },
+  { name: 'Data Science', icon: FiBarChart2, color: '#ec4899', level: 70, category: 'Data' },
+  { name: 'Machine Learning', icon: FiCpu, color: '#00d4ff', level: 60, category: 'Data' },
+  { name: 'Git & GitHub', icon: SiGit, color: '#f97316', level: 80, category: 'Tool' },
 ];
 
 const CATEGORIES = ['All', 'Language', 'Backend', 'Frontend', 'Database', 'DevOps', 'Data', 'Tool'];
 
 export default function Skills() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const [active, setActive] = useState('All');
+
+  const displayed = active === 'All' ? SKILLS : SKILLS.filter((s) => s.category === active);
 
   return (
-    <section id="skills" className="section-padding relative bg-gradient-to-b from-transparent via-indigo-950/5 to-transparent">
-      <div className="absolute left-0 top-1/2 w-72 h-72 bg-violet-600/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="skills" className="section-padding relative" style={{ background: 'linear-gradient(to bottom, transparent, rgba(236,72,153,0.02), transparent)' }}>
+      <div className="absolute left-0 top-1/2 w-72 h-72 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(0,212,255,0.04)' }} />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Header */}
@@ -38,9 +42,9 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
-          <p className="text-indigo-400 font-mono text-sm tracking-widest uppercase mb-3">What I work with</p>
+          <p className="text-sm tracking-widest uppercase mb-3 font-mono" style={{ color: '#ec4899' }}>What I work with</p>
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             My <span className="gradient-text">Tech Stack</span>
           </h2>
@@ -49,47 +53,82 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        {/* Skills grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SKILLS.map(({ name, icon: Icon, color, bg, border, level, category }, i) => (
-            <motion.div
-              key={name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              className={`group glass rounded-2xl p-5 border ${border} hover:border-opacity-60 transition-all duration-300 card-hover`}
+        {/* Category filter */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-2 mb-10"
+        >
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className="px-4 py-1.5 text-sm font-medium rounded-full border transition-all duration-200 font-mono"
+              style={
+                active === cat
+                  ? { background: '#ec4899', borderColor: '#ec4899', color: '#ffffff', boxShadow: '0 4px 16px rgba(236,72,153,0.3)' }
+                  : { background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.08)', color: '#888888' }
+              }
             >
-              <div className="flex items-center gap-4 mb-4">
-                <div className={`w-12 h-12 rounded-xl ${bg} flex items-center justify-center flex-shrink-0`}>
-                  <Icon size={24} color={color} />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-white text-sm truncate">{name}</h3>
-                  <span
-                    className={`text-xs px-2 py-0.5 rounded-full ${bg} mt-0.5 inline-block`}
-                    style={{ color }}
+              {cat}
+              {cat !== 'All' && (
+                <span className="ml-1.5 text-xs opacity-60">
+                  {SKILLS.filter((s) => s.category === cat).length}
+                </span>
+              )}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Skills grid */}
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <AnimatePresence mode="popLayout">
+            {displayed.map(({ name, icon: Icon, color, level, category }, i) => (
+              <motion.div
+                key={name}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3, delay: i * 0.04 }}
+                className="group bento-card bento-card-hover p-5"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div
+                    className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200"
+                    style={{ background: `${color}12`, border: `1px solid ${color}25` }}
                   >
-                    {category}
+                    <Icon size={24} color={color} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-white text-sm truncate">{name}</h3>
+                    <span
+                      className="text-xs px-2 py-0.5 rounded-full mt-0.5 inline-block font-mono"
+                      style={{ background: `${color}10`, color }}
+                    >
+                      {category}
+                    </span>
+                  </div>
+                  <span className="text-sm font-mono font-bold" style={{ color }}>
+                    {level}%
                   </span>
                 </div>
-                <span className="text-sm font-mono font-bold" style={{ color }}>
-                  {level}%
-                </span>
-              </div>
 
-              {/* Progress bar */}
-              <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={inView ? { width: `${level}%` } : { width: 0 }}
-                  transition={{ duration: 1, delay: 0.3 + i * 0.04, ease: 'easeOut' }}
-                  className="h-full rounded-full"
-                  style={{ background: `linear-gradient(90deg, ${color}90, ${color})` }}
-                />
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                {/* Progress bar */}
+                <div className="h-px rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${level}%` }}
+                    transition={{ duration: 1, delay: 0.2 + i * 0.04, ease: 'easeOut' }}
+                    className="h-full rounded-full"
+                    style={{ background: `linear-gradient(90deg, ${color}70, ${color})`, height: '2px' }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
 
         {/* Bottom tagline */}
         <motion.p

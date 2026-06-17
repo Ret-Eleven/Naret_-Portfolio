@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { HiArrowDown, HiDownload } from 'react-icons/hi';
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import { FaTelegram } from 'react-icons/fa';
@@ -10,6 +11,14 @@ const SOCIALS = [
   { icon: FiGithub, href: 'https://github.com/Ret-Eleven', label: 'GitHub' },
   { icon: FiLinkedin, href: 'https://www.linkedin.com/in/kim-soknaret-naret-9772b7356', label: 'LinkedIn' },
   { icon: FaTelegram, href: 'https://t.me/iamtenz18', label: 'Telegram' },
+];
+
+const ROTATING_WORDS = ['Backends', 'Data Pipelines', 'ML Models', 'Web Apps'];
+
+const STATS = [
+  { value: '3+', label: 'Years Learning' },
+  { value: '10+', label: 'Projects Built' },
+  { value: '11+', label: 'Technologies' },
 ];
 
 const containerVariants = {
@@ -22,9 +31,16 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
-const WORDS = ['Data Science Student', 'Backend Developer', 'Web Developer'];
-
 export default function Hero() {
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((i) => (i + 1) % ROTATING_WORDS.length);
+    }, 2200);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <ParticlesBackground />
@@ -32,24 +48,24 @@ export default function Hero() {
       {/* Ambient glow blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute top-1/4 left-[15%] w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[120px]"
-          style={{ animation: 'float 7s ease-in-out infinite' }}
+          className="absolute top-1/4 left-[15%] w-[500px] h-[500px] rounded-full blur-[120px]"
+          style={{ background: 'rgba(236,72,153,0.08)', animation: 'float 7s ease-in-out infinite' }}
         />
         <div
-          className="absolute bottom-1/4 right-[15%] w-[400px] h-[400px] bg-violet-600/15 rounded-full blur-[100px]"
-          style={{ animation: 'float 9s ease-in-out infinite reverse' }}
+          className="absolute bottom-1/4 right-[15%] w-[400px] h-[400px] rounded-full blur-[100px]"
+          style={{ background: 'rgba(0,212,255,0.07)', animation: 'float 9s ease-in-out infinite reverse' }}
         />
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-600/10 rounded-full blur-[80px]"
-          style={{ animation: 'float 5s ease-in-out infinite 2s' }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full blur-[80px]"
+          style={{ background: 'rgba(236,72,153,0.05)', animation: 'float 5s ease-in-out infinite 2s' }}
         />
       </div>
 
       {/* Grid overlay */}
       <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{
-          backgroundImage: 'linear-gradient(rgba(99,102,241,1) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,1) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(236,72,153,1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.5) 1px, transparent 1px)',
           backgroundSize: '60px 60px',
         }}
       />
@@ -63,7 +79,10 @@ export default function Hero() {
         >
           {/* Status badge */}
           <motion.div variants={itemVariants} className="flex justify-center">
-            <span className="inline-flex items-center gap-2 glass rounded-full px-5 py-2 text-sm text-gray-300 border border-indigo-500/20">
+            <span
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm text-gray-300"
+              style={{ background: 'rgba(26,26,26,0.8)', border: '1px solid rgba(236,72,153,0.2)', backdropFilter: 'blur(12px)' }}
+            >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Open to opportunities
             </span>
@@ -71,7 +90,7 @@ export default function Hero() {
 
           {/* Greeting */}
           <motion.div variants={itemVariants}>
-            <p className="text-indigo-400 font-mono text-base sm:text-lg tracking-widest uppercase mb-2">
+            <p className="text-sm sm:text-base tracking-widest uppercase mb-2 font-mono" style={{ color: '#ec4899' }}>
               Hello, World! 👋
             </p>
           </motion.div>
@@ -85,23 +104,41 @@ export default function Hero() {
             <span className="gradient-text">Kim Soknaret</span>
           </motion.h1>
 
+          {/* Rotating word */}
+          <motion.div variants={itemVariants} className="flex items-center justify-center gap-3 text-2xl sm:text-3xl font-bold">
+            <span className="text-gray-400">I build</span>
+            <div className="relative h-10 overflow-hidden" style={{ minWidth: '220px' }}>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={wordIndex}
+                  initial={{ y: 40, opacity: 0, filter: 'blur(8px)' }}
+                  animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                  exit={{ y: -40, opacity: 0, filter: 'blur(8px)' }}
+                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  className="absolute inset-0 flex items-center justify-start gradient-text-vivid"
+                >
+                  {ROTATING_WORDS[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+          </motion.div>
+
           {/* Roles */}
           <motion.div
             variants={itemVariants}
             className="flex flex-wrap justify-center gap-3 text-sm sm:text-base font-mono"
           >
-            {WORDS.map((word, i) => (
+            {[
+              { label: 'Data Science Student', bg: 'rgba(236,72,153,0.1)', color: '#ec4899', border: 'rgba(236,72,153,0.25)' },
+              { label: 'Backend Developer', bg: 'rgba(0,212,255,0.08)', color: '#00d4ff', border: 'rgba(0,212,255,0.2)' },
+              { label: 'Web Developer', bg: 'rgba(255,255,255,0.05)', color: '#ffffff', border: 'rgba(255,255,255,0.12)' },
+            ].map(({ label, bg, color, border }) => (
               <span
-                key={word}
-                className={`px-3 py-1 rounded-lg ${
-                  i === 0
-                    ? 'bg-indigo-500/15 text-indigo-300 border border-indigo-500/30'
-                    : i === 1
-                    ? 'bg-violet-500/15 text-violet-300 border border-violet-500/30'
-                    : 'bg-blue-500/15 text-blue-300 border border-blue-500/30'
-                }`}
+                key={label}
+                className="px-3 py-1 rounded-lg"
+                style={{ background: bg, color, border: `1px solid ${border}` }}
               >
-                {word}
+                {label}
               </span>
             ))}
           </motion.div>
@@ -124,7 +161,8 @@ export default function Hero() {
               href="#projects"
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 to-violet-600 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-shadow duration-300"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-semibold text-white transition-all duration-300"
+              style={{ background: '#ec4899', boxShadow: '0 8px 24px rgba(236,72,153,0.3)' }}
             >
               View My Projects
             </motion.a>
@@ -132,7 +170,8 @@ export default function Hero() {
               href="#contact"
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-white glass border border-white/10 hover:border-indigo-500/40 transition-colors duration-300"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-semibold transition-colors duration-300"
+              style={{ color: '#00d4ff', border: '1px solid rgba(0,212,255,0.4)', background: 'transparent' }}
             >
               Contact Me
             </motion.a>
@@ -141,7 +180,8 @@ export default function Hero() {
               download
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-gray-300 glass border border-white/5 hover:text-white hover:border-indigo-500/30 transition-all duration-300 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-semibold text-gray-300 flex items-center justify-center gap-2 transition-all duration-300 hover:text-white"
+              style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}
             >
               <HiDownload size={16} />
               Resume
@@ -161,11 +201,26 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.15, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 flex items-center justify-center rounded-xl glass text-gray-400 hover:text-indigo-400 hover:border-indigo-500/30 transition-colors duration-200"
+                className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-400 transition-colors duration-200 hover:text-white"
+                style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}
                 aria-label={label}
               >
                 <Icon size={18} />
               </motion.a>
+            ))}
+          </motion.div>
+
+          {/* Stats strip */}
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-3 gap-6 pt-6 mt-2 max-w-xs mx-auto"
+            style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
+          >
+            {STATS.map(({ value, label }) => (
+              <div key={label} className="text-center">
+                <p className="text-2xl font-black gradient-text">{value}</p>
+                <p className="text-xs text-gray-600 font-mono mt-0.5 leading-tight">{label}</p>
+              </div>
             ))}
           </motion.div>
         </motion.div>

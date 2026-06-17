@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
-import ThemeToggle from './ThemeToggle';
 
 const NAV_LINKS = [
   { href: '#home', label: 'Home' },
@@ -46,17 +45,20 @@ export default function Navbar() {
     >
       <div className={`mx-4 sm:mx-6 lg:mx-8 mt-3 transition-all duration-300 ${scrolled ? 'max-w-6xl xl:mx-auto' : 'max-w-full'}`}>
         <div
-          className={`flex items-center justify-between px-5 h-16 rounded-2xl transition-all duration-300 ${
-            scrolled ? 'glass shadow-xl shadow-black/20' : 'bg-transparent'
+          className={`flex items-center justify-between px-5 h-16 rounded-xl transition-all duration-300 ${
+            scrolled ? 'bg-black/80 backdrop-blur-xl border border-white/8 shadow-xl shadow-black/40' : 'bg-transparent'
           }`}
         >
           {/* Logo */}
           <motion.a href="#home" whileHover={{ scale: 1.05 }} className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-              <span className="text-sm font-black text-white">NK</span>
+            <div
+              className="w-9 h-9 rounded-lg flex items-center justify-center"
+              style={{ background: 'linear-gradient(135deg, #ec4899, #00d4ff)', boxShadow: '0 4px 16px rgba(236,72,153,0.35)' }}
+            >
+              <span className="text-sm font-black text-white">KS</span>
             </div>
-            <span className="hidden sm:block text-sm text-gray-400 font-mono">
-              <span className="text-indigo-400">/</span> portfolio
+            <span className="hidden sm:block text-sm font-mono" style={{ color: '#00d4ff' }}>
+              <span className="text-white/40">/</span> portfolio
             </span>
           </motion.a>
 
@@ -75,7 +77,8 @@ export default function Navbar() {
                   {isActive && (
                     <motion.span
                       layoutId="navPill"
-                      className="absolute inset-0 rounded-lg bg-indigo-500/20 border border-indigo-500/30"
+                      className="absolute inset-0 rounded-lg"
+                      style={{ background: 'rgba(236,72,153,0.12)', border: '1px solid rgba(236,72,153,0.25)' }}
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
                     />
                   )}
@@ -87,17 +90,18 @@ export default function Navbar() {
 
           {/* Right actions */}
           <div className="flex items-center gap-2">
-            <ThemeToggle />
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-shadow duration-200"
+              className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg text-white transition-all duration-200"
+              style={{ background: '#ec4899', boxShadow: '0 4px 16px rgba(236,72,153,0.3)' }}
             >
               Hire Me
             </motion.a>
             <button
-              className="md:hidden p-2 text-gray-400 hover:text-white transition-colors rounded-lg glass"
+              className="md:hidden p-2 text-gray-400 hover:text-white transition-colors rounded-lg"
+              style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.04)' }}
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Toggle menu"
             >
@@ -114,7 +118,8 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -8, scale: 0.97 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden mt-2 glass rounded-2xl overflow-hidden shadow-xl shadow-black/30"
+              className="md:hidden mt-2 rounded-xl overflow-hidden shadow-xl shadow-black/40"
+              style={{ background: 'rgba(10,10,10,0.95)', border: '1px solid rgba(0,212,255,0.15)', backdropFilter: 'blur(16px)' }}
             >
               {NAV_LINKS.map((link, i) => (
                 <motion.a
@@ -126,9 +131,12 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className={`flex items-center px-6 py-3.5 text-sm font-medium transition-colors duration-150 ${
                     activeSection === link.href.slice(1)
-                      ? 'text-white bg-indigo-500/10 border-l-2 border-indigo-500'
+                      ? 'text-white border-l-2'
                       : 'text-gray-400 hover:text-white hover:bg-white/5'
                   }`}
+                  style={activeSection === link.href.slice(1)
+                    ? { background: 'rgba(236,72,153,0.08)', borderColor: '#ec4899' }
+                    : {}}
                 >
                   {link.label}
                 </motion.a>

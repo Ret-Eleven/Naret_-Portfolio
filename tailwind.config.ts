@@ -10,21 +10,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
+        pink: {
+          DEFAULT: '#ec4899',
+          light: '#f472b6',
+          dark: '#db2777',
+        },
+        cyan: {
+          DEFAULT: '#00d4ff',
+          light: '#22d3ee',
+          dark: '#0891b2',
         },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-compute': 'linear-gradient(135deg, #ec4899 0%, #00d4ff 100%)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
