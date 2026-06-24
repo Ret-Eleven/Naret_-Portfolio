@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'framer-motion';
 import { HiArrowRight } from 'react-icons/hi';
@@ -19,11 +19,11 @@ export default function CTA() {
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(236,72,153,0.07) 0%, rgba(0,212,255,0.05) 45%, transparent 70%)',
+              'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(6,182,212,0.07) 0%, rgba(129,140,248,0.05) 45%, transparent 70%)',
           }}
         />
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(236,72,153,0.35), transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(0,212,255,0.3), transparent)' }} />
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(6,182,212,0.35), transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(129,140,248,0.3), transparent)' }} />
       </div>
 
       {/* Grid overlay */}
@@ -31,7 +31,7 @@ export default function CTA() {
         className="absolute inset-0 opacity-[0.02] pointer-events-none"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(236,72,153,1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.8) 1px, transparent 1px)',
+            'linear-gradient(rgba(6,182,212,1) 1px, transparent 1px), linear-gradient(90deg, rgba(129,140,248,0.8) 1px, transparent 1px)',
           backgroundSize: '80px 80px',
         }}
       />
@@ -39,11 +39,11 @@ export default function CTA() {
       {/* Accent glows */}
       <div
         className="absolute left-1/4 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-[100px] pointer-events-none"
-        style={{ background: 'rgba(236,72,153,0.1)' }}
+        style={{ background: 'rgba(6,182,212,0.1)' }}
       />
       <div
         className="absolute right-1/4 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-[100px] pointer-events-none"
-        style={{ background: 'rgba(0,212,255,0.08)' }}
+        style={{ background: 'rgba(129,140,248,0.08)' }}
       />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -101,7 +101,7 @@ export default function CTA() {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-white text-base transition-all duration-300"
-            style={{ background: '#ec4899', boxShadow: '0 8px 32px rgba(236,72,153,0.3)' }}
+            style={{ background: '#06b6d4', boxShadow: '0 8px 32px rgba(6,182,212,0.3)' }}
           >
             Get In Touch
             <HiArrowRight size={18} />
@@ -113,7 +113,7 @@ export default function CTA() {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.97 }}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg font-semibold text-gray-300 text-base transition-all duration-300 hover:text-white"
-            style={{ border: '1px solid rgba(0,212,255,0.3)', background: 'transparent', color: '#00d4ff' }}
+            style={{ border: '1px solid rgba(129,140,248,0.3)', background: 'transparent', color: '#818cf8' }}
           >
             <FiGithub size={18} />
             View My Work
@@ -140,3 +140,4 @@ export default function CTA() {
     </section>
   );
 }
+

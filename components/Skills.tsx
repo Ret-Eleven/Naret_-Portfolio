@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,16 +11,16 @@ import { FiBarChart2, FiCpu } from 'react-icons/fi';
 
 const SKILLS = [
   { name: 'Python', icon: SiPython, color: '#3b82f6', level: 85, category: 'Language' },
-  { name: 'Django', icon: SiDjango, color: '#10b981', level: 75, category: 'Backend' },
+  { name: 'Django', icon: SiDjango, color: '#818cf8', level: 75, category: 'Backend' },
   { name: 'Next.js', icon: SiNextdotjs, color: '#ffffff', level: 70, category: 'Frontend' },
   { name: 'JavaScript', icon: SiJavascript, color: '#f59e0b', level: 75, category: 'Language' },
   { name: 'TypeScript', icon: SiTypescript, color: '#3b82f6', level: 65, category: 'Language' },
-  { name: 'SQL & PostgreSQL', icon: SiPostgresql, color: '#00d4ff', level: 70, category: 'Database' },
-  { name: 'Supabase', icon: SiSupabase, color: '#10b981', level: 65, category: 'Database' },
+  { name: 'SQL & PostgreSQL', icon: SiPostgresql, color: '#818cf8', level: 70, category: 'Database' },
+  { name: 'Supabase', icon: SiSupabase, color: '#818cf8', level: 65, category: 'Database' },
   { name: 'Docker', icon: SiDocker, color: '#3b82f6', level: 60, category: 'DevOps' },
   { name: 'Linux Ubuntu', icon: SiUbuntu, color: '#f97316', level: 65, category: 'DevOps' },
-  { name: 'Data Science', icon: FiBarChart2, color: '#ec4899', level: 70, category: 'Data' },
-  { name: 'Machine Learning', icon: FiCpu, color: '#00d4ff', level: 60, category: 'Data' },
+  { name: 'Data Science', icon: FiBarChart2, color: '#06b6d4', level: 70, category: 'Data' },
+  { name: 'Machine Learning', icon: FiCpu, color: '#818cf8', level: 60, category: 'Data' },
   { name: 'Git & GitHub', icon: SiGit, color: '#f97316', level: 80, category: 'Tool' },
 ];
 
@@ -33,8 +33,8 @@ export default function Skills() {
   const displayed = active === 'All' ? SKILLS : SKILLS.filter((s) => s.category === active);
 
   return (
-    <section id="skills" className="section-padding relative" style={{ background: 'linear-gradient(to bottom, transparent, rgba(236,72,153,0.02), transparent)' }}>
-      <div className="absolute left-0 top-1/2 w-72 h-72 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(0,212,255,0.04)' }} />
+    <section id="skills" className="section-padding relative" style={{ background: 'linear-gradient(to bottom, transparent, rgba(6,182,212,0.02), transparent)' }}>
+      <div className="absolute left-0 top-1/2 w-72 h-72 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(129,140,248,0.04)' }} />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Header */}
@@ -44,7 +44,7 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <p className="text-sm tracking-widest uppercase mb-3 font-mono" style={{ color: '#ec4899' }}>What I work with</p>
+          <p className="text-sm tracking-widest uppercase mb-3 font-mono" style={{ color: '#06b6d4' }}>What I work with</p>
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             My <span className="gradient-text">Tech Stack</span>
           </h2>
@@ -67,7 +67,7 @@ export default function Skills() {
               className="px-4 py-1.5 text-sm font-medium rounded-full border transition-all duration-200 font-mono"
               style={
                 active === cat
-                  ? { background: '#ec4899', borderColor: '#ec4899', color: '#ffffff', boxShadow: '0 4px 16px rgba(236,72,153,0.3)' }
+                  ? { background: '#06b6d4', borderColor: '#06b6d4', color: '#ffffff', boxShadow: '0 4px 16px rgba(6,182,212,0.3)' }
                   : { background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.08)', color: '#888888' }
               }
             >
@@ -143,3 +143,4 @@ export default function Skills() {
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -36,11 +36,11 @@ export default function LoadingScreen() {
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div
               className="absolute top-1/3 left-1/3 w-64 h-64 rounded-full blur-3xl animate-pulse"
-              style={{ background: 'rgba(236,72,153,0.2)' }}
+              style={{ background: 'rgba(6,182,212,0.2)' }}
             />
             <div
               className="absolute bottom-1/3 right-1/3 w-64 h-64 rounded-full blur-3xl animate-pulse"
-              style={{ background: 'rgba(0,212,255,0.15)', animationDelay: '1s' }}
+              style={{ background: 'rgba(129,140,248,0.15)', animationDelay: '1s' }}
             />
           </div>
 
@@ -55,11 +55,11 @@ export default function LoadingScreen() {
               <div className="relative w-24 h-24 flex items-center justify-center">
                 <div
                   className="absolute inset-0 rounded-2xl opacity-25 blur-xl"
-                  style={{ background: 'linear-gradient(135deg, #ec4899, #00d4ff)' }}
+                  style={{ background: 'linear-gradient(135deg, #06b6d4, #818cf8)' }}
                 />
                 <div
                   className="relative w-20 h-20 rounded-2xl flex items-center justify-center"
-                  style={{ background: 'linear-gradient(135deg, #ec4899, #00d4ff)' }}
+                  style={{ background: 'linear-gradient(135deg, #06b6d4, #818cf8)' }}
                 >
                   <span className="text-3xl font-black text-white tracking-tight">NK</span>
                 </div>
@@ -73,7 +73,7 @@ export default function LoadingScreen() {
                 animate={{ width: '100%' }}
                 transition={{ duration: 2.2, ease: 'easeInOut', delay: 0.3 }}
                 className="h-full rounded-full"
-                style={{ background: 'linear-gradient(90deg, #ec4899, #00d4ff)' }}
+                style={{ background: 'linear-gradient(90deg, #06b6d4, #818cf8)' }}
               />
             </div>
 
@@ -91,3 +91,4 @@ export default function LoadingScreen() {
     </AnimatePresence>
   );
 }
+

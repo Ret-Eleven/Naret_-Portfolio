@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useRef } from 'react';
 
@@ -12,7 +12,7 @@ interface Particle {
   color: string;
 }
 
-const COLORS = ['#ec4899', '#00d4ff', '#f472b6', '#22d3ee', '#ffffff', '#ec489966', '#00d4ff66'];
+const COLORS = ['#06b6d4', '#818cf8', '#22d3ee', '#a5b4fc', '#ffffff', '#06b6d466', '#818cf866'];
 const MAX_LINK_DIST = 140;
 const MOUSE_REPEL_DIST = 120;
 
@@ -136,3 +136,4 @@ export default function ParticlesBackground() {
     />
   );
 }
+

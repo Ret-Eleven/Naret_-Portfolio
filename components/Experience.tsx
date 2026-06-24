@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -14,7 +14,7 @@ const JOURNEY = [
     description:
       'Began my coding journey with Python — from variables and loops to OOP and file I/O. Fell in love with the simplicity and power of the language.',
     icon: SiPython,
-    color: '#00d4ff',
+    color: '#818cf8',
     skills: ['Python Basics', 'OOP', 'File I/O', 'pip'],
     type: 'learning',
   },
@@ -26,7 +26,7 @@ const JOURNEY = [
     description:
       'Dived into Django to build web applications — REST APIs, authentication, ORM, admin panel, and deploying on Linux servers.',
     icon: SiDjango,
-    color: '#10b981',
+    color: '#818cf8',
     skills: ['Django', 'REST API', 'PostgreSQL', 'Authentication'],
     type: 'project',
   },
@@ -38,7 +38,7 @@ const JOURNEY = [
     description:
       'Explored the data science ecosystem: pandas, NumPy, matplotlib, scikit-learn. Built prediction models and learned statistical analysis.',
     icon: HiDatabase,
-    color: '#ec4899',
+    color: '#06b6d4',
     skills: ['pandas', 'NumPy', 'scikit-learn', 'matplotlib', 'Jupyter'],
     type: 'learning',
   },
@@ -50,7 +50,7 @@ const JOURNEY = [
     description:
       'Combined Django backends with Next.js frontends to build complete applications. Learned TypeScript, Tailwind CSS, and modern React patterns.',
     icon: HiCode,
-    color: '#00d4ff',
+    color: '#818cf8',
     skills: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase'],
     type: 'project',
   },
@@ -62,7 +62,7 @@ const JOURNEY = [
     description:
       'Learning DevOps fundamentals — Docker containerization, Linux server administration, Wazuh security monitoring, and CI/CD pipelines for reliable deployments.',
     icon: HiServer,
-    color: '#ec4899',
+    color: '#06b6d4',
     skills: ['Docker', 'Linux Ubuntu', 'Wazuh', 'Nginx', 'CI/CD'],
     type: 'learning',
   },
@@ -72,9 +72,9 @@ export default function Experience() {
   const { ref, inView } = useInView({ threshold: 0.08, triggerOnce: true });
 
   return (
-    <section id="experience" className="section-padding relative" style={{ background: 'linear-gradient(to bottom, transparent, rgba(0,212,255,0.02), transparent)' }}>
-      <div className="absolute left-1/4 bottom-1/4 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(236,72,153,0.04)' }} />
-      <div className="absolute right-1/4 top-1/4 w-64 h-64 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(0,212,255,0.03)' }} />
+    <section id="experience" className="section-padding relative" style={{ background: 'linear-gradient(to bottom, transparent, rgba(129,140,248,0.02), transparent)' }}>
+      <div className="absolute left-1/4 bottom-1/4 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(6,182,212,0.04)' }} />
+      <div className="absolute right-1/4 top-1/4 w-64 h-64 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(129,140,248,0.03)' }} />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Header */}
@@ -84,7 +84,7 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm tracking-widest uppercase mb-3 font-mono" style={{ color: '#ec4899' }}>My journey so far</p>
+          <p className="text-sm tracking-widest uppercase mb-3 font-mono" style={{ color: '#06b6d4' }}>My journey so far</p>
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             Learning <span className="gradient-text">Timeline</span>
           </h2>
@@ -98,7 +98,7 @@ export default function Experience() {
           {/* Vertical gradient line */}
           <div
             className="absolute left-6 top-6 bottom-6 w-px sm:left-1/2 sm:-translate-x-px"
-            style={{ background: 'linear-gradient(to bottom, #ec4899, #00d4ff, #ec4899, #00d4ff, transparent)' }}
+            style={{ background: 'linear-gradient(to bottom, #06b6d4, #818cf8, #06b6d4, #818cf8, transparent)' }}
           />
 
           <div className="space-y-8">
@@ -190,11 +190,11 @@ export default function Experience() {
         >
           <div
             className="inline-flex items-center gap-2 rounded-full px-6 py-3"
-            style={{ background: 'rgba(0,212,255,0.06)', border: '1px solid rgba(0,212,255,0.2)' }}
+            style={{ background: 'rgba(129,140,248,0.06)', border: '1px solid rgba(129,140,248,0.2)' }}
           >
-            <HiCloud style={{ color: '#00d4ff' }} size={16} />
+            <HiCloud style={{ color: '#818cf8' }} size={16} />
             <span className="text-sm text-gray-400">
-              Currently exploring <span style={{ color: '#00d4ff' }}>Cloud &amp; MLOps</span> next...
+              Currently exploring <span style={{ color: '#818cf8' }}>Cloud &amp; MLOps</span> next...
             </span>
           </div>
         </motion.div>
@@ -202,3 +202,4 @@ export default function Experience() {
     </section>
   );
 }
+

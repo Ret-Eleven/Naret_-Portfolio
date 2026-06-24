@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -53,11 +53,11 @@ export default function Navbar() {
           <motion.a href="#home" whileHover={{ scale: 1.05 }} className="flex items-center gap-2.5">
             <div
               className="w-9 h-9 rounded-lg flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, #ec4899, #00d4ff)', boxShadow: '0 4px 16px rgba(236,72,153,0.35)' }}
+              style={{ background: 'linear-gradient(135deg, #06b6d4, #818cf8)', boxShadow: '0 4px 16px rgba(6,182,212,0.35)' }}
             >
               <span className="text-sm font-black text-white">KS</span>
             </div>
-            <span className="hidden sm:block text-sm font-mono" style={{ color: '#00d4ff' }}>
+            <span className="hidden sm:block text-sm font-mono" style={{ color: '#818cf8' }}>
               <span className="text-white/40">/</span> portfolio
             </span>
           </motion.a>
@@ -78,7 +78,7 @@ export default function Navbar() {
                     <motion.span
                       layoutId="navPill"
                       className="absolute inset-0 rounded-lg"
-                      style={{ background: 'rgba(236,72,153,0.12)', border: '1px solid rgba(236,72,153,0.25)' }}
+                      style={{ background: 'rgba(6,182,212,0.12)', border: '1px solid rgba(6,182,212,0.25)' }}
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
                     />
                   )}
@@ -95,7 +95,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg text-white transition-all duration-200"
-              style={{ background: '#ec4899', boxShadow: '0 4px 16px rgba(236,72,153,0.3)' }}
+              style={{ background: '#06b6d4', boxShadow: '0 4px 16px rgba(6,182,212,0.3)' }}
             >
               Hire Me
             </motion.a>
@@ -119,7 +119,7 @@ export default function Navbar() {
               exit={{ opacity: 0, y: -8, scale: 0.97 }}
               transition={{ duration: 0.2 }}
               className="md:hidden mt-2 rounded-xl overflow-hidden shadow-xl shadow-black/40"
-              style={{ background: 'rgba(10,10,10,0.95)', border: '1px solid rgba(0,212,255,0.15)', backdropFilter: 'blur(16px)' }}
+              style={{ background: 'rgba(10,10,10,0.95)', border: '1px solid rgba(129,140,248,0.15)', backdropFilter: 'blur(16px)' }}
             >
               {NAV_LINKS.map((link, i) => (
                 <motion.a
@@ -135,7 +135,7 @@ export default function Navbar() {
                       : 'text-gray-400 hover:text-white hover:bg-white/5'
                   }`}
                   style={activeSection === link.href.slice(1)
-                    ? { background: 'rgba(236,72,153,0.08)', borderColor: '#ec4899' }
+                    ? { background: 'rgba(6,182,212,0.08)', borderColor: '#06b6d4' }
                     : {}}
                 >
                   {link.label}
@@ -148,3 +148,4 @@ export default function Navbar() {
     </motion.header>
   );
 }
+

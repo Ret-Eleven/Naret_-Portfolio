@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -13,9 +13,9 @@ const SOCIALS = [
     label: 'Email',
     value: 'kim.soknaret@gmail.com',
     href: 'mailto:kim.soknaret@gmail.com',
-    color: '#ec4899',
-    bg: 'rgba(236,72,153,0.06)',
-    border: 'rgba(236,72,153,0.15)',
+    color: '#06b6d4',
+    bg: 'rgba(6,182,212,0.06)',
+    border: 'rgba(6,182,212,0.15)',
   },
   {
     icon: FiGithub,
@@ -31,18 +31,18 @@ const SOCIALS = [
     label: 'LinkedIn',
     value: 'kim-soknaret-naret',
     href: 'https://www.linkedin.com/in/kim-soknaret-naret-9772b7356',
-    color: '#00d4ff',
-    bg: 'rgba(0,212,255,0.06)',
-    border: 'rgba(0,212,255,0.15)',
+    color: '#818cf8',
+    bg: 'rgba(129,140,248,0.06)',
+    border: 'rgba(129,140,248,0.15)',
   },
   {
     icon: FaTelegram,
     label: 'Telegram',
     value: '@iamtenz18',
     href: 'https://t.me/iamtenz18',
-    color: '#00d4ff',
-    bg: 'rgba(0,212,255,0.05)',
-    border: 'rgba(0,212,255,0.12)',
+    color: '#818cf8',
+    bg: 'rgba(129,140,248,0.05)',
+    border: 'rgba(129,140,248,0.12)',
   },
 ];
 
@@ -87,12 +87,12 @@ export default function Contact() {
     border: errors[field] ? '1px solid rgba(239,68,68,0.5)' : '1px solid rgba(255,255,255,0.08)',
     boxShadow: 'none',
   });
-  const inputFocusClass = 'focus:ring-1 focus:ring-[#ec4899]/40';
+  const inputFocusClass = 'focus:ring-1 focus:ring-[#06b6d4]/40';
 
   return (
     <section id="contact" className="section-padding relative">
-      <div className="absolute right-1/4 top-1/4 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(236,72,153,0.04)' }} />
-      <div className="absolute left-1/4 bottom-1/4 w-64 h-64 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(0,212,255,0.03)' }} />
+      <div className="absolute right-1/4 top-1/4 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(6,182,212,0.04)' }} />
+      <div className="absolute left-1/4 bottom-1/4 w-64 h-64 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(129,140,248,0.03)' }} />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Header */}
@@ -102,7 +102,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <p className="text-sm tracking-widest uppercase mb-3 font-mono" style={{ color: '#ec4899' }}>Let&apos;s connect</p>
+          <p className="text-sm tracking-widest uppercase mb-3 font-mono" style={{ color: '#06b6d4' }}>Let&apos;s connect</p>
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             Get In <span className="gradient-text">Touch</span>
           </h2>
@@ -121,14 +121,14 @@ export default function Contact() {
           >
             {/* Status card */}
             <div className="bento-card p-5 space-y-4">
-              <p className="text-xs tracking-widest uppercase font-mono" style={{ color: '#ec4899' }}>{'// availability'}</p>
+              <p className="text-xs tracking-widest uppercase font-mono" style={{ color: '#06b6d4' }}>{'// availability'}</p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-sm text-gray-400">
-                  <HiLocationMarker size={15} style={{ color: '#ec4899', flexShrink: 0 }} />
+                  <HiLocationMarker size={15} style={{ color: '#06b6d4', flexShrink: 0 }} />
                   <span>Phnom Penh, Cambodia</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-400">
-                  <HiClock size={15} style={{ color: '#00d4ff', flexShrink: 0 }} />
+                  <HiClock size={15} style={{ color: '#818cf8', flexShrink: 0 }} />
                   <span>UTC+7 — Indochina Time</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-emerald-400 font-mono">
@@ -198,14 +198,14 @@ export default function Contact() {
                   <button
                     onClick={() => setStatus('idle')}
                     className="px-6 py-2.5 rounded-lg text-white text-sm font-medium transition-all duration-200 hover:opacity-90"
-                    style={{ background: '#ec4899' }}
+                    style={{ background: '#06b6d4' }}
                   >
                     Send Another
                   </button>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <p className="text-xs tracking-widest uppercase mb-5 font-mono" style={{ color: '#ec4899' }}>{'// send_message()'}</p>
+                  <p className="text-xs tracking-widest uppercase mb-5 font-mono" style={{ color: '#06b6d4' }}>{'// send_message()'}</p>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs text-gray-500 mb-1.5 uppercase tracking-wider font-mono">Name *</label>
@@ -266,7 +266,7 @@ export default function Contact() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full py-3.5 rounded-lg font-semibold text-white flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300"
-                    style={{ background: '#ec4899', boxShadow: '0 4px 20px rgba(236,72,153,0.25)' }}
+                    style={{ background: '#06b6d4', boxShadow: '0 4px 20px rgba(6,182,212,0.25)' }}
                   >
                     {status === 'loading' ? (
                       <>
@@ -292,3 +292,4 @@ export default function Contact() {
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -49,15 +49,15 @@ export default function Hero() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute top-1/4 left-[15%] w-[500px] h-[500px] rounded-full blur-[120px]"
-          style={{ background: 'rgba(236,72,153,0.08)', animation: 'float 7s ease-in-out infinite' }}
+          style={{ background: 'rgba(6,182,212,0.08)', animation: 'float 7s ease-in-out infinite' }}
         />
         <div
           className="absolute bottom-1/4 right-[15%] w-[400px] h-[400px] rounded-full blur-[100px]"
-          style={{ background: 'rgba(0,212,255,0.07)', animation: 'float 9s ease-in-out infinite reverse' }}
+          style={{ background: 'rgba(129,140,248,0.07)', animation: 'float 9s ease-in-out infinite reverse' }}
         />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full blur-[80px]"
-          style={{ background: 'rgba(236,72,153,0.05)', animation: 'float 5s ease-in-out infinite 2s' }}
+          style={{ background: 'rgba(6,182,212,0.05)', animation: 'float 5s ease-in-out infinite 2s' }}
         />
       </div>
 
@@ -65,7 +65,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{
-          backgroundImage: 'linear-gradient(rgba(236,72,153,1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.5) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(6,182,212,1) 1px, transparent 1px), linear-gradient(90deg, rgba(129,140,248,0.5) 1px, transparent 1px)',
           backgroundSize: '60px 60px',
         }}
       />
@@ -81,7 +81,7 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="flex justify-center">
             <span
               className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm text-gray-300"
-              style={{ background: 'rgba(26,26,26,0.8)', border: '1px solid rgba(236,72,153,0.2)', backdropFilter: 'blur(12px)' }}
+              style={{ background: 'rgba(26,26,26,0.8)', border: '1px solid rgba(6,182,212,0.2)', backdropFilter: 'blur(12px)' }}
             >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Open to opportunities
@@ -90,7 +90,7 @@ export default function Hero() {
 
           {/* Greeting */}
           <motion.div variants={itemVariants}>
-            <p className="text-sm sm:text-base tracking-widest uppercase mb-2 font-mono" style={{ color: '#ec4899' }}>
+            <p className="text-sm sm:text-base tracking-widest uppercase mb-2 font-mono" style={{ color: '#06b6d4' }}>
               Hello, World! 👋
             </p>
           </motion.div>
@@ -129,8 +129,8 @@ export default function Hero() {
             className="flex flex-wrap justify-center gap-3 text-sm sm:text-base font-mono"
           >
             {[
-              { label: 'Data Science Student', bg: 'rgba(236,72,153,0.1)', color: '#ec4899', border: 'rgba(236,72,153,0.25)' },
-              { label: 'Backend Developer', bg: 'rgba(0,212,255,0.08)', color: '#00d4ff', border: 'rgba(0,212,255,0.2)' },
+              { label: 'Data Science Student', bg: 'rgba(6,182,212,0.1)', color: '#06b6d4', border: 'rgba(6,182,212,0.25)' },
+              { label: 'Backend Developer', bg: 'rgba(129,140,248,0.08)', color: '#818cf8', border: 'rgba(129,140,248,0.2)' },
               { label: 'Web Developer', bg: 'rgba(255,255,255,0.05)', color: '#ffffff', border: 'rgba(255,255,255,0.12)' },
             ].map(({ label, bg, color, border }) => (
               <span
@@ -162,7 +162,7 @@ export default function Hero() {
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-semibold text-white transition-all duration-300"
-              style={{ background: '#ec4899', boxShadow: '0 8px 24px rgba(236,72,153,0.3)' }}
+              style={{ background: '#06b6d4', boxShadow: '0 8px 24px rgba(6,182,212,0.3)' }}
             >
               View My Projects
             </motion.a>
@@ -171,7 +171,7 @@ export default function Hero() {
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-semibold transition-colors duration-300"
-              style={{ color: '#00d4ff', border: '1px solid rgba(0,212,255,0.4)', background: 'transparent' }}
+              style={{ color: '#818cf8', border: '1px solid rgba(129,140,248,0.4)', background: 'transparent' }}
             >
               Contact Me
             </motion.a>
@@ -239,3 +239,4 @@ export default function Hero() {
     </section>
   );
 }
+

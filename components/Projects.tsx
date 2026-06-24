@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -14,8 +14,8 @@ const PROJECTS = [
     title: 'Wazuh Monitoring Setup',
     description:
       'A comprehensive security monitoring and SIEM solution using Wazuh for real-time threat detection, log analysis, and alerting across Linux/Ubuntu servers.',
-    gradient: 'from-[#ec4899]/20 to-orange-600/10',
-    accentColor: '#ec4899',
+    gradient: 'from-[#06b6d4]/20 to-orange-600/10',
+    accentColor: '#06b6d4',
     icon: HiShieldCheck,
     tags: ['Wazuh', 'Linux', 'Ubuntu', 'Docker', 'Security'],
     github: 'https://github.com',
@@ -28,7 +28,7 @@ const PROJECTS = [
     description:
       'A full-featured REST API web application built with Django and Django REST Framework, including authentication, CRUD operations, and PostgreSQL database integration.',
     gradient: 'from-emerald-600/20 to-teal-600/10',
-    accentColor: '#10b981',
+    accentColor: '#818cf8',
     icon: SiDjango,
     tags: ['Django', 'Python', 'PostgreSQL', 'REST API', 'JWT'],
     github: 'https://github.com',
@@ -40,8 +40,8 @@ const PROJECTS = [
     title: 'Data Science Prediction Model',
     description:
       'Machine learning pipeline for predictive analytics using scikit-learn, pandas, and matplotlib. Includes data preprocessing, feature engineering, model training and evaluation.',
-    gradient: 'from-[#00d4ff]/15 to-blue-600/10',
-    accentColor: '#00d4ff',
+    gradient: 'from-[#818cf8]/15 to-blue-600/10',
+    accentColor: '#818cf8',
     icon: FiBarChart2,
     tags: ['Python', 'scikit-learn', 'pandas', 'ML', 'Jupyter'],
     github: 'https://github.com',
@@ -53,8 +53,8 @@ const PROJECTS = [
     title: 'Portfolio Website',
     description:
       'This personal portfolio built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion. Features smooth animations, particle effects, and the COMPUTE-inspired design system.',
-    gradient: 'from-[#ec4899]/15 to-[#00d4ff]/10',
-    accentColor: '#ec4899',
+    gradient: 'from-[#06b6d4]/15 to-[#818cf8]/10',
+    accentColor: '#06b6d4',
     icon: SiNextdotjs,
     tags: ['Next.js', 'TypeScript', 'Tailwind', 'Framer Motion'],
     github: 'https://github.com',
@@ -67,7 +67,7 @@ const PROJECTS = [
     description:
       'A real-time dashboard application using Supabase for backend-as-a-service, featuring authentication, real-time subscriptions, and Row Level Security policies.',
     gradient: 'from-green-600/20 to-emerald-600/10',
-    accentColor: '#10b981',
+    accentColor: '#818cf8',
     icon: SiSupabase,
     tags: ['Supabase', 'Next.js', 'PostgreSQL', 'Real-time', 'Auth'],
     github: 'https://github.com',
@@ -84,7 +84,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="section-padding relative">
-      <div className="absolute right-0 top-1/3 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(236,72,153,0.04)' }} />
+      <div className="absolute right-0 top-1/3 w-80 h-80 rounded-full blur-3xl pointer-events-none" style={{ background: 'rgba(6,182,212,0.04)' }} />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         {/* Header */}
@@ -94,7 +94,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <p className="text-sm tracking-widest uppercase mb-3 font-mono" style={{ color: '#ec4899' }}>What I&apos;ve built</p>
+          <p className="text-sm tracking-widest uppercase mb-3 font-mono" style={{ color: '#06b6d4' }}>What I&apos;ve built</p>
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             Featured <span className="gradient-text">Projects</span>
           </h2>
@@ -114,7 +114,7 @@ export default function Projects() {
                 className="px-5 py-2 text-sm font-medium rounded-lg transition-all duration-200 capitalize"
                 style={
                   filter === f
-                    ? { background: '#ec4899', color: '#ffffff', boxShadow: '0 4px 12px rgba(236,72,153,0.3)' }
+                    ? { background: '#06b6d4', color: '#ffffff', boxShadow: '0 4px 12px rgba(6,182,212,0.3)' }
                     : { color: '#888888' }
                 }
               >
@@ -144,7 +144,7 @@ export default function Projects() {
                   {featured && (
                     <span
                       className="absolute top-3 left-3 text-xs px-2.5 py-1 rounded-full font-medium"
-                      style={{ background: 'rgba(236,72,153,0.85)', color: '#ffffff', backdropFilter: 'blur(8px)' }}
+                      style={{ background: 'rgba(6,182,212,0.85)', color: '#ffffff', backdropFilter: 'blur(8px)' }}
                     >
                       ⭐ Featured
                     </span>
@@ -163,7 +163,7 @@ export default function Projects() {
 
                 {/* Content */}
                 <div className="p-5 flex flex-col flex-1">
-                  <h3 className="font-bold text-white text-lg mb-2 transition-colors duration-200 group-hover:text-[#ec4899]">
+                  <h3 className="font-bold text-white text-lg mb-2 transition-colors duration-200 group-hover:text-[#818cf8]">
                     {title}
                   </h3>
                   <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1">{description}</p>
@@ -199,7 +199,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1 flex items-center justify-center gap-2 py-2 text-sm font-medium rounded-lg text-white hover:opacity-90 transition-opacity duration-200"
-                        style={{ background: '#ec4899' }}
+                        style={{ background: '#06b6d4' }}
                       >
                         <FiExternalLink size={14} />
                         Live Demo
@@ -232,7 +232,7 @@ export default function Projects() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200 group"
-            style={{ color: '#ec4899' }}
+            style={{ color: '#06b6d4' }}
           >
             View all projects on GitHub
             <FiGithub size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
@@ -242,3 +242,4 @@ export default function Projects() {
     </section>
   );
 }
+

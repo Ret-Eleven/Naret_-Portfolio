@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useRef, useState, Suspense, lazy } from 'react';
 import Link from 'next/link';
@@ -50,7 +50,7 @@ function HeroContent() {
     <div className="text-left text-white pt-16 sm:pt-24 md:pt-32 px-4 max-w-3xl">
       <span
         className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm text-gray-300 mb-6"
-        style={{ background: 'rgba(26,26,26,0.8)', border: '1px solid rgba(236,72,153,0.2)', backdropFilter: 'blur(12px)' }}
+        style={{ background: 'rgba(26,26,26,0.8)', border: '1px solid rgba(6,182,212,0.2)', backdropFilter: 'blur(12px)' }}
       >
         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
         Open to opportunities
@@ -61,7 +61,7 @@ function HeroContent() {
         <span className="gradient-text">Kim Soknaret</span>
       </h1>
 
-      <p className="text-base sm:text-lg md:text-xl mb-3 font-semibold font-mono" style={{ color: '#00d4ff' }}>
+      <p className="text-base sm:text-lg md:text-xl mb-3 font-semibold font-mono" style={{ color: '#818cf8' }}>
         Data Science Student &amp; Backend Developer
       </p>
 
@@ -143,11 +143,11 @@ function Navbar() {
         <Link href="#home" aria-label="home" className="flex items-center gap-2.5">
           <div
             className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-            style={{ background: 'linear-gradient(135deg, #ec4899, #00d4ff)', boxShadow: '0 4px 16px rgba(236,72,153,0.35)' }}
+            style={{ background: 'linear-gradient(135deg, #06b6d4, #818cf8)', boxShadow: '0 4px 16px rgba(6,182,212,0.35)' }}
           >
             <span className="text-sm font-black text-white">KS</span>
           </div>
-          <span className="hidden sm:block text-sm font-mono" style={{ color: '#00d4ff' }}>
+          <span className="hidden sm:block text-sm font-mono" style={{ color: '#818cf8' }}>
             <span className="text-white/40">/</span> portfolio
           </span>
         </Link>
@@ -280,3 +280,4 @@ export function HeroSection() {
     </div>
   );
 }
+
