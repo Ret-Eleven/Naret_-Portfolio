@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { HiLightningBolt, HiLocationMarker, HiBriefcase, HiAcademicCap } from 'react-icons/hi';
+import Image from 'next/image';
+import { HiLocationMarker, HiBriefcase, HiAcademicCap } from 'react-icons/hi';
 
 export const metadata: Metadata = {
   title: 'Introduction',
@@ -75,7 +76,7 @@ export default function IntroductionPage() {
                 An AI Engineer passionate about building robust, scalable, and innovative
                 solutions for solving real problems. I&apos;m a Data Science and Engineering
                 student at the Royal University of Phnom Penh (RUPP), working across{' '}
-                <em>web development, machine learning, deep learning, RAG, and LLMs</em>.
+                <em>web development, machine learning, and deep learning</em>.
               </p>
               <p>
                 This laboratory is where I work out loud. The blog is where I synthesize
@@ -108,14 +109,21 @@ export default function IntroductionPage() {
           {/* Avatar / Identity card */}
           <div className="flex justify-center lg:justify-end">
             <div className="glass rounded-[var(--radius)] p-6 w-full max-w-xs">
-              {/* Avatar placeholder */}
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[var(--accent)] to-[oklch(0.62_0.22_290)] flex items-center justify-center mx-auto mb-4" aria-hidden="true">
-                <HiLightningBolt className="text-black" size={32} />
+              {/* Avatar */}
+              <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4 border border-[var(--accent-border)]">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Kim Soknaret"
+                  width={80}
+                  height={80}
+                  className="w-full h-full object-cover object-top"
+                  priority
+                />
               </div>
               <div className="text-center mb-4">
                 <div className="font-bold text-[var(--fg)] text-lg">Kim Soknaret</div>
                 <div className="text-sm text-[var(--fg-muted)]">AI Engineer</div>
-                <div className="mono text-xs text-[var(--accent)] mt-1">@soknaret</div>
+                <div className="mono text-xs text-[var(--accent)] mt-1">kim.soknaret@gmail.com</div>
               </div>
               <div className="border-t border-[var(--border)] pt-4 space-y-2">
                 {[
