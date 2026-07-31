@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { FaHeart } from 'react-icons/fa';
 
 const SOCIAL_LINKS = [
   {
@@ -116,12 +115,6 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-6 border-t border-[var(--border)]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="mono text-xs text-[var(--fg-muted)] order-2 sm:order-1">
-            Forged with{' '}
-            <FaHeart className="heartbeat inline-block text-red-400 align-[-0.1em]" size={11} aria-hidden="true" />
-            {' & code'}
-          </p>
-
           {/* Social icons center */}
           <div className="hidden xs:flex items-center gap-3 order-1 sm:order-2">
             {SOCIAL_LINKS.slice(0, 3).map((s) => (
