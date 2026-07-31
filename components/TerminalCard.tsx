@@ -2,30 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-const ASCII_LARGE = `
- ███████╗██╗███╗   ██╗
- ██╔════╝██║████╗  ██║
- █████╗  ██║██╔██╗ ██║
- ██╔══╝  ██║██║╚██╗██║
- ███████╗██║██║ ╚████║
- ╚══════╝╚═╝╚═╝  ╚═══╝
-
-  ██████╗ ██████╗ ██████╗ ███████╗
- ██╔════╝██╔═══██╗██╔══██╗██╔════╝
- ██║     ██║   ██║██║  ██║█████╗
- ██║     ██║   ██║██║  ██║██╔══╝
- ╚██████╗╚██████╔╝██████╔╝███████╗
-  ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝`.trim();
-
-const ASCII_SMALL = `
- ███ ███ █╗
- ██╔ ██║ ██╗
- ███ ╚██ ╚██
-
- ██ ██ ██ ██
- ██    ██ ██
- ██ ██ ██ ██`.trim();
-
 const STATUS_LINES = [
   { label: 'experiments loaded', value: `${12}` },
   { label: 'status', value: 'forging' },
@@ -58,30 +34,22 @@ export default function TerminalCard() {
             <button className="w-3 h-3 rounded-full bg-[var(--accent)]/70 hover:bg-[var(--accent)] transition-colors" aria-label="Maximize" />
           </div>
           <div className="mono text-xs text-[var(--fg-subtle)] border border-[var(--border)] px-2.5 py-0.5 rounded-full">
-            terminal://eincode
+            terminal://soknaret
           </div>
           <div className="w-14" aria-hidden="true" />
         </div>
 
         {/* Body */}
         <div className="p-5 sm:p-6 relative">
-          {/* Large ASCII (hidden on xs) */}
-          <pre
-            className="hidden sm:block mono text-[0.45rem] md:text-[0.5rem] leading-tight select-none mb-4"
-            style={{ color: 'var(--accent)', opacity: 0.85 }}
-            aria-hidden="true"
-          >
-            {ASCII_LARGE}
-          </pre>
-
-          {/* Small ASCII (xs only) */}
-          <pre
-            className="sm:hidden mono text-[0.5rem] leading-tight select-none mb-4"
-            style={{ color: 'var(--accent)', opacity: 0.85 }}
-            aria-hidden="true"
-          >
-            {ASCII_SMALL}
-          </pre>
+          {/* Name banner */}
+          <div className="mono font-black leading-none select-none mb-4" aria-hidden="true">
+            <div className="text-4xl sm:text-5xl tracking-tight" style={{ color: 'var(--accent)', opacity: 0.9 }}>
+              KIM
+            </div>
+            <div className="text-xl sm:text-2xl tracking-[0.2em] text-[var(--fg-muted)] mt-1">
+              SOKNARET
+            </div>
+          </div>
 
           {/* Status lines */}
           <div className="space-y-1.5 mt-2">

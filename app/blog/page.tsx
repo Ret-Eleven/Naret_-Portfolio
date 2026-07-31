@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { HiStar } from 'react-icons/hi';
 import { BLOG_POSTS, getAllCategories } from '@/lib/blog-data';
 
 export const metadata: Metadata = {
@@ -75,7 +76,9 @@ export default function BlogPage() {
                       {post.category}
                     </span>
                     <span className="text-xs text-[var(--fg-subtle)]">{post.readTime} min read</span>
-                    <span className="text-xs text-[var(--accent)] mono">★ Featured</span>
+                    <span className="text-xs text-[var(--accent)] mono flex items-center gap-1">
+                      <HiStar size={12} aria-hidden="true" /> Featured
+                    </span>
                   </div>
 
                   <h2 className="font-semibold text-[var(--fg)] group-hover:text-[var(--accent)] transition-colors mb-2 leading-snug text-lg">

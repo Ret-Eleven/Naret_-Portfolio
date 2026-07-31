@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import { FaHeart } from 'react-icons/fa';
 
 const SOCIAL_LINKS = [
   {
     label: 'GitHub',
-    handle: '@eincode',
+    handle: '@Ret-Eleven',
     href: 'https://github.com/Ret-Eleven',
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -117,7 +118,7 @@ export default function Footer() {
         <div className="pt-6 border-t border-[var(--border)]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="mono text-xs text-[var(--fg-muted)] order-2 sm:order-1">
             Forged with{' '}
-            <span className="heartbeat inline-block text-red-400">❤️</span>
+            <FaHeart className="heartbeat inline-block text-red-400 align-[-0.1em]" size={11} aria-hidden="true" />
             {' & code'}
           </p>
 
@@ -138,7 +139,7 @@ export default function Footer() {
           </div>
 
           <p className="mono text-xs text-[var(--fg-subtle)] order-3">
-            © {year} EINCODE — All experiments reserved
+            © {year} KIM SOKNARET — All experiments reserved
           </p>
         </div>
       </div>

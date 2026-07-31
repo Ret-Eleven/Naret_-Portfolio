@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 import { COLOR_THEMES, useColorTheme } from '@/lib/theme-context';
+import { HiLightningBolt } from 'react-icons/hi';
 
 const NAV_LINKS = [
   { href: '/',            label: 'Home'      },
@@ -74,16 +75,18 @@ export default function Header() {
         <nav className="flex items-center justify-between h-16" aria-label="Main navigation">
 
           {/* ── Logo ──────────────────────────────────────────── */}
-          <Link href="/" className="group flex items-center gap-2.5" aria-label="EinCode — home">
+          <Link href="/" className="group flex items-center gap-2.5" aria-label="Kim Soknaret — home">
             <div
               className="w-9 h-9 rounded-lg border border-[var(--accent-border)] bg-[var(--accent-muted)] flex items-center justify-center text-base transition-all duration-300 group-hover:scale-105 group-hover:border-[var(--accent)] group-hover:shadow-[0_0_16px_var(--accent-glow)]"
               aria-hidden="true"
             >
-              <span className="glitch" data-text="⚡">⚡</span>
+              <span className="glitch" data-text="⚡">
+                <HiLightningBolt className="text-[var(--accent)]" size={16} />
+              </span>
             </div>
             <span className="font-bold tracking-tight text-base">
-              <span className="text-[var(--fg)]">EIN</span>
-              <span className="gradient-text">CODE</span>
+              <span className="text-[var(--fg)]">KIM</span>{' '}
+              <span className="gradient-text">SOKNARET</span>
             </span>
           </Link>
 

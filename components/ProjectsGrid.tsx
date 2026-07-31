@@ -2,6 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import type { IconType } from 'react-icons';
+import { HiStar } from 'react-icons/hi';
+import { HiCpuChip, HiBeaker, HiChartBar, HiGlobeAlt, HiFolder } from 'react-icons/hi2';
+import { FiGitBranch } from 'react-icons/fi';
 import type { Project } from '@/lib/projects-data';
 
 type FilterState = 'all' | 'live' | 'wip' | 'archived';
@@ -19,12 +23,11 @@ const STATUS_CONFIG = {
   archived: { label: 'Archived',    dot: 'bg-[var(--fg-subtle)]', text: 'text-[var(--fg-subtle)] bg-[var(--bg-card)] border-[var(--border)]' },
 } as const;
 
-const CATEGORY_ICONS: Record<string, string> = {
-  'Web':             '🌐',
-  'Developer Tools': '🛠',
-  'Design Tools':    '🎨',
-  'Productivity':    '⚡',
-  'Open Source':     '📦',
+const CATEGORY_ICONS: Record<string, IconType> = {
+  'AI / Data':      HiCpuChip,
+  'AI / ML':        HiBeaker,
+  'Data Analytics': HiChartBar,
+  'Web':            HiGlobeAlt,
 };
 
 const SPARKLE_ICON = (
@@ -144,9 +147,9 @@ export default function ProjectsGrid({ projects }: Props) {
                     </Link>
                   )}
                   <div className="ml-auto flex items-center gap-1.5">
-                    <span className="text-[var(--fg-subtle)]">⭐</span>
+                    <HiStar className="text-[var(--fg-subtle)]" size={13} aria-hidden="true" />
                     <span className="mono text-xs text-[var(--fg-subtle)]">—</span>
-                    <span className="text-[var(--fg-subtle)] ml-2">⑂</span>
+                    <FiGitBranch className="text-[var(--fg-subtle)] ml-2" size={12} aria-hidden="true" />
                     <span className="mono text-xs text-[var(--fg-subtle)]">—</span>
                   </div>
                 </div>
@@ -170,8 +173,12 @@ export default function ProjectsGrid({ projects }: Props) {
                 className={`glass glass-hover group rounded-[var(--radius)] p-6 flex flex-col gap-4 relative overflow-hidden fade-in-up stagger-${(i % 6) + 2}`}
               >
                 <div className="flex items-start justify-between gap-2">
-                  <div className="mono text-xs text-[var(--fg-subtle)]">
-                    {CATEGORY_ICONS[project.category] ?? '📁'} {project.category}
+                  <div className="mono text-xs text-[var(--fg-subtle)] flex items-center gap-1.5">
+                    {(() => {
+                      const CategoryIcon = CATEGORY_ICONS[project.category] ?? HiFolder;
+                      return <CategoryIcon size={13} aria-hidden="true" />;
+                    })()}
+                    {project.category}
                   </div>
                   <div className="flex items-center gap-1.5 shrink-0">
                     <span className={`relative flex h-2 w-2`}>

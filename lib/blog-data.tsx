@@ -20,8 +20,8 @@ export interface BlogPost {
 }
 
 const AUTHOR: BlogAuthor = {
-  name: 'EinCode',
-  role: 'Developer & Creator',
+  name: 'Kim Soknaret',
+  role: 'AI Engineer',
   avatar: '/avatar.jpg',
 };
 

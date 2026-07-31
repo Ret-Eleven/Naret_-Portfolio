@@ -4,7 +4,7 @@ import ProjectsGrid from '@/components/ProjectsGrid';
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Open source projects, tools, and experiments from the EinCode laboratory.',
+  description: 'AI, machine learning, and web development projects from Kim Soknaret’s laboratory.',
 };
 
 export default function ProjectsPage() {

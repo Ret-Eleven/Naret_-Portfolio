@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { HiStar } from 'react-icons/hi';
 import { BLOG_POSTS } from '@/lib/blog-data';
 import { PROJECTS } from '@/lib/projects-data';
 import HeroTypewriter from '@/components/HeroTypewriter';
@@ -29,7 +30,7 @@ export default function HomePage() {
             <div>
               {/* Tagline */}
               <p className="fade-in mono text-xs uppercase tracking-widest text-[var(--accent)] mb-5">
-                EinCode — Where Code Meets Curiosity
+                Kim Soknaret — Where Code Meets Curiosity
               </p>
 
               {/* H1 */}
@@ -187,7 +188,9 @@ export default function HomePage() {
                     {post.category}
                   </span>
                   <span className="mono text-xs text-[var(--fg-subtle)]">{post.readTime} min read</span>
-                  <span className="mono text-xs text-[var(--accent)] ml-auto">★ Featured</span>
+                  <span className="mono text-xs text-[var(--accent)] ml-auto flex items-center gap-1">
+                    <HiStar size={12} aria-hidden="true" /> Featured
+                  </span>
                 </div>
                 <h3 className="font-bold tracking-tight text-[var(--fg)] group-hover:text-[var(--accent)] transition-colors mb-3 leading-snug text-lg">
                   {post.title}

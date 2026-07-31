@@ -81,7 +81,7 @@ server.listen(config.port, config.host, () => {
   background-clip: text;
 }`,
 
-  'README.md': `# EinCode Lab
+  'README.md': `# Kim Soknaret — Portfolio
 
 A personal digital laboratory built with modern web technologies.
 
@@ -318,7 +318,7 @@ export default function CodeEditorDemo() {
       <div className="flex items-center gap-4 px-4 py-2 border-t border-[var(--border)] bg-[var(--bg-card)]">
         <span className="mono text-xs text-[var(--fg-subtle)]">Ln 1, Col 1</span>
         <span className="mono text-xs text-[var(--fg-subtle)]">Spaces: 2</span>
-        <span className="mono text-xs text-[var(--accent)] ml-auto">EinCode Lab · Workbench v0.1</span>
+        <span className="mono text-xs text-[var(--accent)] ml-auto">Kim Soknaret · Workbench v0.1</span>
       </div>
     </div>
   );
